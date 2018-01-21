@@ -19,5 +19,3 @@ Your primary task is to implement the makeGrid() function, that dynamically crea
 * Click and drag to paint
 * Right-Click and drag to erase
 
-
-
