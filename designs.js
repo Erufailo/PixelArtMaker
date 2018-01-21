@@ -21,3 +21,20 @@ $('#pixel_canvas').on('click', 'td', function(){// on the table if a td is click
   $(this).css("background-color",$("#colorPicker").val()) // take the color of the colorpicker and paint the backround of the td
 });
 
+/* 
+****EXTRA FEATURES*******
+*/
+//click and drag to paint, for more efficiency
+var clicked =false;
+$('#pixel_canvas').on('mousedown', 'td', function(){
+  clicked =true;
+});
+$('#pixel_canvas').on('mouseup', 'td', function(){
+  clicked =false;
+});
+
+$('#pixel_canvas').on('mouseenter', 'td', function(){
+  if(clicked){ // only if the mouse is down paint the "pixel"
+    $(this).css("background-color",$("#colorPicker").val());
+  }
+});
