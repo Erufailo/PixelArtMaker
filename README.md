@@ -4,7 +4,7 @@ Final Project for the Google Front end scholarship challenge
 
 Demo: https://codepen.io/JohnRin/pen/PEmgGG
 
-## Instructions
+## Instructions(Initial requirements)
 
 Your users should be able to:
 

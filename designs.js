@@ -1,6 +1,8 @@
 /*                  *******Changelog*******
 Live demo: https://codepen.io/JohnRin/pen/PEmgGG
-
+24-1-18: Fixed Bugs where the paint continued if the cursor went
+         out of canvas, and the drag painting started from the next
+         "pixel"
 21-1-18: Added right-click to erase feature
 13-1-18: Added min/max values to grid size to prevent lagging in very large canvas
 30-12-17: initial implementation with extra features to drag and paint
@@ -44,6 +46,7 @@ $('#pixel_canvas').on('mousedown', 'td', function(e){
     clicked=false;
     rightClicked=true;    
   }
+  e.preventDefault();
 });
 $('#pixel_canvas').on('mouseup', 'td', function(e){
   if(e.which ==1){//if event is click
@@ -54,9 +57,14 @@ $('#pixel_canvas').on('mouseup', 'td', function(e){
     rightClicked=false;
     clicked =false;    
   }
+  
 });
+$('#pixel_canvas').on('mouseleave', function(){// if the mouse leaves the canvas reset the variables
+  clicked=false;
+  rightClicked=false;
 
-$('#pixel_canvas').on('mouseenter', 'td', function(){
+});
+$('#pixel_canvas').on('mouseenter mousemove', 'td', function(){
   if(clicked){ // only if the mouse is down paint the "pixel"
     $(this).css("background-color",$("#colorPicker").val());
   }else if(rightClicked){//else erase
