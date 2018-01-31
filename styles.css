@@ -1,14 +1,17 @@
 body {
     text-align: center;
+    background-color:rgb(223, 223, 231);
+    
 }
 
 h1 {
     font-family: Monoton;
-    font-size: 70px;
+    font-size: 55px;
     margin: 0.2em;
 }
 
 h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 1em 0 0.25em;
 }
 
@@ -23,6 +26,7 @@ td {
 }
 
 table {
+    background-color: white;
     border-collapse: collapse;
     margin: 0 auto;
 }
