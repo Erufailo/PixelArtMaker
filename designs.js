@@ -1,16 +1,19 @@
 /*                  *******Changelog*******
 Live demo: https://codepen.io/JohnRin/pen/PEmgGG
-28-1-18: Reduced the use of selector $() with the use of variables
-         Added erase with single right click.
-24-1-18: Fixed Bugs where the paint continued if the cursor went
-         out of canvas, and the drag painting started from the next
-         "pixel"
-21-1-18: Added right-click to erase feature
-13-1-18: Added min/max values to grid size to prevent lagging in very large canvas
+01-02-18: Added save canvas feature
+28-01-18: Reduced the use of selector $() with the use of variables
+          Added erase with single right click.
+24-01-18: Fixed Bugs where the paint continued if the cursor went
+          out of canvas, and the drag painting started from the next
+          "pixel"
+21-01-18: Added right-click to erase feature
+13-01-18: Added min/max values to grid size to prevent lagging in very large canvas
 30-12-17: initial implementation with extra features to drag and paint
 */
+//require('./js/html2canvas.min.js');
 const canvas = $('#pixel_canvas');
 const colorPicker = $("#colorPicker");
+//var html2canvas = require('./js/html2canvas.min.js');
 
 // When size is submitted by the user, call makeGrid()
 function makeGrid(width, height) {
@@ -80,4 +83,17 @@ canvas.on('mouseenter mousemove', 'td', function () {
 canvas.contextmenu(function () {
   return false;
   $(this).css("background-color", "white");// single right click to erase a pixel
+});
+
+//Save Canvas feature
+$('#save').click(function(){
+  html2canvas(document.querySelector('#pixel_canvas')).then (saveCanvas =>{
+      let link= document.createElement('a');
+      link.href= saveCanvas.toDataURL();
+      link.download= "canvas.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+  });
+ 
 });

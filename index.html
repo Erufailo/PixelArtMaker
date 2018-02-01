@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./js/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -21,12 +22,15 @@
 
     <h2>Pick A Color</h2>
     <input type="color" id="colorPicker">
-
+   
     <h2>Design Canvas</h2>
+    <button  id="save" >Save Canvas</button>
     <p>Click to paint, Right Click to erase. Also you can drag the mouse to do both!</p>
     <table id="pixel_canvas"></table>
 
     <script src="designs.js"></script>
+  
+
 </body>
 
 </html>
