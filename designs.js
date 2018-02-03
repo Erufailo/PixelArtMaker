@@ -1,6 +1,9 @@
 /*                  *******Changelog*******
 Live demo: https://codepen.io/JohnRin/pen/PEmgGG
+GitHub: https://github.com/Erufailo/PixelArtMaker
+
 01-02-18: Added save canvas feature
+30-01-18: Minor Style Changes.
 28-01-18: Reduced the use of selector $() with the use of variables
           Added erase with single right click.
 24-01-18: Fixed Bugs where the paint continued if the cursor went

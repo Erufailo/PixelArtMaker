@@ -1,6 +1,7 @@
 # Pixel Art Maker Project
 
-Final Project for the Google Front end scholarship challenge
+Final Project for the Google Front end scholarship challenge on Udacity
+John Rinakakis
 
 Demo: https://codepen.io/JohnRin/pen/PEmgGG
 
@@ -18,4 +19,5 @@ Your primary task is to implement the makeGrid() function, that dynamically crea
 
 * Click and drag to paint
 * Right-Click and drag to erase
+* Save canvas as a picture to desktop
 
