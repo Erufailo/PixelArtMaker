@@ -2,6 +2,7 @@
 Live demo: https://codepen.io/JohnRin/pen/PEmgGG
 GitHub: https://github.com/Erufailo/PixelArtMaker
 
+08-02-18: Added feature to hide grid and to clear the canvas
 01-02-18: Added save canvas feature
 30-01-18: Minor Style Changes.
 28-01-18: Reduced the use of selector $() with the use of variables
@@ -13,10 +14,8 @@ GitHub: https://github.com/Erufailo/PixelArtMaker
 13-01-18: Added min/max values to grid size to prevent lagging in very large canvas
 30-12-17: initial implementation with extra features to drag and paint
 */
-//require('./js/html2canvas.min.js');
 const canvas = $('#pixel_canvas');
 const colorPicker = $("#colorPicker");
-//var html2canvas = require('./js/html2canvas.min.js');
 
 // When size is submitted by the user, call makeGrid()
 function makeGrid(width, height) {
@@ -30,6 +29,7 @@ function makeGrid(width, height) {
       canvas.children("#tr" + i).append("<td></td>");//insert a box in every row equal to the number of width
     }
   }
+  $('td').toggleClass("td");
 }
 $("#sizePicker").submit(function () {//select the form and on submit event
   let height = ($("#input_height").val());//take the value of height
@@ -64,6 +64,7 @@ canvas.on('mouseup', 'td', function (e) {
     rightClicked = false;
   }
   if (e.which == 3) {//if event is right-click
+    $(this).css("background-color", "white");// single right click to erase a pixel
     rightClicked = false;
     clicked = false;
   }
@@ -74,7 +75,7 @@ canvas.on('mouseleave', function () {// if the mouse leaves the canvas reset the
   rightClicked = false;
 
 });
-canvas.on('mouseenter mousemove', 'td', function () {
+canvas.on('mousemove mouseover', 'td', function () {
   if (clicked) { // only if the mouse is down paint the "pixel"
     $(this).css("background-color",colorPicker.val());
   } else if (rightClicked) {//else erase
@@ -85,7 +86,6 @@ canvas.on('mouseenter mousemove', 'td', function () {
 //prevent right-click to show the menu in the canvas
 canvas.contextmenu(function () {
   return false;
-  $(this).css("background-color", "white");// single right click to erase a pixel
 });
 
 //Save Canvas feature
@@ -99,4 +99,11 @@ $('#save').click(function(){
       document.body.removeChild(link);
   });
  
+});
+$('#gridLines').click(function(){
+  $('td').toggleClass("td"); //toggle the class controlling the border when the button is pressed
+});
+
+$('#clear').click(function(){
+  $('td').css("background-color", "white"); //crear the canvas by paint it white when the button is pressed
 });
